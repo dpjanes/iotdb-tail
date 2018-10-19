@@ -15,8 +15,8 @@ const assert = require("assert")
 const tail = require("..")
 
 const tailer = tail("xxx")
-tailer.on("line", x => {
-    console.log("line:", x)
+tailer.on("line", (line, lined) => {
+    console.log("line:", lined.line, line.substring(0, 10))
     /*
     if (!x.startsWith("{")) {
         console.log(x)
